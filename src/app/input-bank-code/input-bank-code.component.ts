@@ -6,25 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-bank-code.component.scss'],
 })
 export class InputBankCodeComponent implements OnInit {
-  public arr = (new Array(10)).fill(0).map( (t, i) => i);
+  public arr = new Array(10).fill(0).map((t, i) => i);
   public innerValue = '';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.arr = this.shuffle(this.arr);
   }
 
-  private shuffle(arr) {
-    arr.sort( (el1, el2) => Math.random() - 0.5 );
+  private shuffle(arr: number[]) {
+    arr.sort((el1, el2) => Math.random() - 0.5);
     return arr;
   }
-  public update(i: string) {
+  public update(i: number) {
     this.innerValue += i;
   }
 
   public reset() {
     this.innerValue = '';
   }
-
 }
